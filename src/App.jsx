@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     let ndx = parseInt(localStorage.getItem("styleIndex"));
     if (ndx > 0) setStyleIndex(ndx);
-    document.title = `API test app`;
+    document.title = `startupApp-um`;
   }, []);
 
   const handleButtonClick = () => {
@@ -50,7 +50,7 @@ function App() {
 
         <header className="App-header">
           <Navbar className="navbar-dark bg-primary" expand="lg">
-            <Navbar.Brand>Json API test</Navbar.Brand>
+            <Navbar.Brand>Startup SPA</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">

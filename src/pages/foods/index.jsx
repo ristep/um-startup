@@ -14,7 +14,7 @@ const foodListQuery = (search, pgSize, offset) => ({
   MetaList: {
     type: "foods",
     attributes: [
-      "id", "name", "description", "name_scientific", "wikipedia_id", "food_group", "food_subgroup", "food_type", "public_id"
+      "id", "name", "description", "name_scientific", "wikipedia_id", "food_group", "food_subgroup", "food_type", "public_id", "picture_url"
     ],
     filter: {
       template: "name like :par1 or name_scientific like :par2",
@@ -30,9 +30,17 @@ const foodListQuery = (search, pgSize, offset) => ({
   }
 });
 
+// const imageListQueri = (id) => ({
+//   "Images": {
+//     "type": "foods",
+//     "id": id
+//   }
+// });
+
 const Foods = () => {
   const { size = PAGE_SIZE, page = 0, search = '' } = useParams();
   const [result, setResult] = useState({ OK: false, count: 0, data: [] });
+  // const [ imageList, setImageList] = useState([]);
 
   const location = (ps, pg, sr) => {
     window.location.replace(BaseUrl + ps + "/" + pg + "/" + sr);
@@ -54,6 +62,16 @@ const Foods = () => {
     return () => clearTimeout(timer);
   }, [page, search, size, result.recordCount]);
 
+  // useEffect( () => {
+  //   (async () => {
+  //     await Axios.post("", imageListQueri(result.id)).then((ret) => {
+  //       if (ret.data.OK) {
+  //         setImageList(ret.data);
+  //       }
+  //     });
+  //   })();
+  // }, [result.id]);
+
   return (
     <>
       <Navbar className="bg-light justify-content-between">
@@ -72,9 +90,9 @@ const Foods = () => {
             </Row>
             <Row>
               <button className="btn btn-light" disabled>Page size:</button>
-              <button onClick={ () => location(  5, page, search )} className="btn btn-outline-primary" >5</button>
-              <button onClick={ () => location( 10, page, search )} className="btn btn-outline-primary">10</button>
-              <button onClick={ () => location( 15, page, search )} className="btn btn-outline-primary">15</button>
+              <button onClick={() => location(  5, page, search )} className="btn btn-outline-primary" >5</button>
+              <button onClick={() => location( 10, page, search )} className="btn btn-outline-primary">10</button>
+              <button onClick={() => location( 15, page, search )} className="btn btn-outline-primary">15</button>
             </Row>
           </Container>
         </Navbar.Collapse>
@@ -87,7 +105,7 @@ const Foods = () => {
             id: variant.id,
             publicId: variant.public_id,
             name: variant.name,
-            imgUrl: Axios.defaults.baseURL + "img/" + variant.id + ".png",
+            imgUrl: Axios.defaults.baseURL + variant.picture_url,
             nameScientific: variant.name_scientific,
             foodGroup: variant.food_group,
             foodSubgroup: variant.food_subgroup

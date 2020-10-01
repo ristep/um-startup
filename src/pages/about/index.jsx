@@ -6,7 +6,7 @@ import { Card } from "react-bootstrap";
 
 const AboutPage = () =>{
 	const [markdown, setMarkdown] = useState('');
-  const [url] = useState("https://raw.githubusercontent.com/ristep/php-json-api-test-app/master/README.md");
+  const [url] = useState("https://raw.githubusercontent.com/ristep/um-startup/master/README.md");
 
   useEffect(() => {
       fetch(url)
