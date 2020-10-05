@@ -1,3 +1,7 @@
+// Theme change action types
+export const NEXT_THEME = "NEXT_THEME";
+export const SET_THEME = "SET_THEME";
+
 // Pages swich actions 
 export const GO_HOME = "GO_HOME";
 export const NAVIGATE_TO_URL = "NAVIGATE_TO_URL";

@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <Container>
       <h2>Home page placeholders</h2>
-  <Button onClick={() => setCount(count + 1)}>klink {count}</Button>
+  <Button className="btn-success" onClick={() => setCount(count + 1)}>click {count}</Button>
 
     <Table>
       <Col>

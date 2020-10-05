@@ -5,3 +5,15 @@
 @import "../../../node_modules/bootstrap-scss/bootstrap.scss";
 
 @import "bootswatch";
+
+.form-control {
+  transform: skewX(-8deg);
+}
+
+.pagination {
+  transform: skewX(-8deg);
+}
+
+.btn {
+  transform: skewX(-8deg);
+}

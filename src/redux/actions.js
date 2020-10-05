@@ -27,8 +27,14 @@ import {
 	TOGGLE_SIDENAV,
 	UPDATE_DATA_ROW,
 	CLEAR_USER_DATA,
+	NEXT_THEME,
+	SET_THEME
 } from "./actionTypes";
 import { getToken, postJsonRequest } from "dataModules";
+
+// Theme actions
+export const nextTheme = () => ({type:NEXT_THEME});
+export const setTheme = (ndx) => ({type:SET_THEME, payload: ndx });
 
 // Route actions
 export const goHome = () => ({ type: GO_HOME });

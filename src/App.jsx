@@ -1,9 +1,10 @@
-import "./App.scss";
+import "App.scss";
 
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
-import { Nav, NavLink } from "react-bootstrap";
+import { Dropdown, DropdownButton, Nav, NavLink } from "react-bootstrap";
 
 import Home from "pages/home";
 
@@ -12,39 +13,21 @@ import Queries from "pages/queries";
 import About from "pages/about";
 import Food from "pages/food";
 import Foods from "pages/foods";
-
-const themes = [
-  { title: "Spacelab", path: "/styles/Spacelab/main.css" },
-  { title: "Flatly", path: "/styles/Flatly/main.css" },
-  { title: "United", path: "/styles/United/main.css" },
-  { title: "Sketchy Light", path: "/styles/sketchy-light/main.css" },
-  { title: "Sketchy Dark", path: "/styles/sketchy-dark/main.css" },
-  { title: "Cyborg", path: "/styles/cyborg/main.css" },
-  { title: "Lumen", path: "/styles/lumen/main.css" },
-  { title: "Cerulean", path: "/styles/Cerulean/main.css" },
-  { title: "Minty", path: "/styles/Minty/main.css" },
-  { title: "Darkly", path: "/styles/Darkly/main.css" },
-];
+import { nextTheme, setTheme } from "redux/actions";
+import { themeTitles } from "styles/themes";
 
 function App() {
-  const [styleIndex, setStyleIndex] = useState(0);
+  const dispatch = useDispatch();
+  const theme = useSelector(state => state.uiTheme);
 
   useEffect(() => {
-    let ndx = parseInt(localStorage.getItem("styleIndex"));
-    if (ndx > 0) setStyleIndex(ndx);
     document.title = `startupApp-um`;
+    // console.log( themeTitles ) ;
   }, []);
-
-  const handleButtonClick = () => {
-    let next = styleIndex + 1;
-    if (next === themes.length) next = 0;
-    setStyleIndex(next);
-    localStorage.setItem("styleIndex", next);
-  };
 
   return (
     <div className="App">
-      <link rel="stylesheet" type="text/css" href={process.env.PUBLIC_URL + themes[styleIndex].path} />
+      <link rel="stylesheet" type="text/css" href={process.env.PUBLIC_URL + theme.path} />
       {/* <link rel="stylesheet" type="text/css" href={process.env.PUBLIC_URL+"styles/App.scss"}></link> */}
       <Router basename="#/">
 
@@ -59,8 +42,13 @@ function App() {
                 <NavLink href="#/queries">Requests</NavLink>
                 <NavLink href="#/about">About</NavLink>
               </Nav>
-              <Button type="button" onClick={handleButtonClick}>
-                Click to change theme: {themes[styleIndex].title}
+              <DropdownButton id="dropdown-basic-button" title={theme.title}>
+                { themeTitles.map( (title,ndx)  => (
+                  <Dropdown.Item onSelect={() => dispatch(setTheme(ndx))}>{title}</Dropdown.Item>
+                ))}
+              </DropdownButton>
+              <Button type="button" onClick={() => dispatch(nextTheme())}>
+                Next theme
               </Button>
               {/* <Link onClick={() => window.location.replace("/about")}>About</Link> */}
             </Navbar.Collapse>
@@ -99,3 +87,4 @@ function App() {
 }
 
 export default App;
+
