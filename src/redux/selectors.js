@@ -1,3 +1,6 @@
+// theme selector
+export const getTheme = (state) => (state.uiTheme);
+
 // Navi selectors
 export const getPage = (state) => (state.naviGator.page);
 export const getNaviParams = (state) => (state.naviGator.params);

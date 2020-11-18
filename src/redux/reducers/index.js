@@ -8,7 +8,7 @@ import cartList from "./cartList";
 
 export default { 
 	uiState,
-	uiTheme,
+	uiTheme: uiTheme,
 	userToken,
 	jsonData,
 	cartList

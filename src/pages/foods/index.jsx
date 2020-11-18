@@ -90,7 +90,7 @@ const Foods = () => {
             </Row>
             <Row>
               <button className="btn btn-light" disabled>Page size:</button>
-              <button onClick={() => location(  5, page, search )} className="btn btn-outline-primary" >5</button>
+              <button onClick={() => location(  5, page, search )} className="btn btn-outline-primary"> 5</button>
               <button onClick={() => location( 10, page, search )} className="btn btn-outline-primary">10</button>
               <button onClick={() => location( 15, page, search )} className="btn btn-outline-primary">15</button>
             </Row>
