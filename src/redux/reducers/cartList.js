@@ -12,7 +12,7 @@ const initialState = () => ({
 	items:[]
 });
 
-export default (state = initialState(), action) =>
+const cartList = (state = initialState(), action) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case ADD_TO_CART: {
@@ -48,3 +48,5 @@ export default (state = initialState(), action) =>
 		}
 		return draft;
 	});
+
+export default cartList;

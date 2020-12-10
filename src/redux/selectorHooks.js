@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 
 // userToken Selectos selector Hooks
 export const useUserToken = () => useSelector( (state) => (state.userToken) ); 
+export const useUserTokenData = () => useSelector( (state) => (state.userToken.tokenData) ); 
 export const useAuToken = () => useSelector( (state) => (state.userToken.tokenData.auToken) );
 export const useUsersAll = () => useSelector( (state) => (state.jsonData.usersAll));
 export const useCardBoxOpen = () => useSelector( (state) => (state.uiState.cartBoxIsOpen));

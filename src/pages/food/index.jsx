@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import Axios from "Axios";
+import Axios from "connection/data";
 import { Card } from "react-bootstrap";
 
 const foodDetailQuery = (id) => (
@@ -32,7 +32,7 @@ const Food = () => {
       <Card.Body>
         <Card.Title><h2>{food.name}</h2></Card.Title>
         <Card.Img src={Axios.defaults.baseURL + food.picture_url} />
-        <Card.Text component={'span'}>
+        <Card.Text>
           <dl className="row">
 
             <dt className="col-sm-2">Public id:</dt>

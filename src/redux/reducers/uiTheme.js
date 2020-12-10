@@ -11,7 +11,7 @@ const initialState = {
 // export const getTitle = (state) => (state.title);
 // export const getGetPath = (state) => (state.path);
 
-export default (state = initialState, action) => {
+const uiTheme = (state = initialState, action) => {
 		switch (action.type) {
 			case SET_THEME:{
 				const ndx = action.payload;
@@ -25,3 +25,5 @@ export default (state = initialState, action) => {
 				return state;
 		}
 	};
+
+export default uiTheme;

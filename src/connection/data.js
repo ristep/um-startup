@@ -1,24 +1,26 @@
 import axios from "axios";
 
 const axParams = {
-	baseURL: "http://192.168.100.8/SimpJ2J/",
-	headers: {
-		"Authorization": "dummy-key",
-		"Content-type": "application/json"
-	}
+  baseURL: "http://phptest.sman/php-json-api/",
+  headers: {
+    Authorization: "dummy-key",
+    "Content-type": "application/json",
+  },
 };
 
 const Axios = axios.create(axParams);
 
 export const getToken = (args) => {
-	const { url = 'tokenizer/', userName, password, callBack, callError } = args;
+	const { url = '', username, password, callBack, callError } = args;
 	const fetchToken = () => {
-		Axios.post(url, {
-			name: userName,
-			password: password
-		})
+		Axios.post("", {
+    getToken: {
+      username,
+      password
+    }
+  })
 		.then(response => { 
-			callBack({ timeStamp: Date.now() ,...response.data});
+			callBack({ timeStamp: Date.now() , ...response.data });
 		})
 		.catch(error => {
 				callError(error);
@@ -38,3 +40,5 @@ export const postJsonRequest = (args) => {
 
 export const imgUrl = axParams.baseURL + 'images/' 
 export const slikcaUrl = axParams.baseURL + 'images/slikca' 
+
+export default Axios;

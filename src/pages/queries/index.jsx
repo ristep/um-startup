@@ -5,7 +5,7 @@ import ReactJson from "react-json-view";
 import { Card, Table, Tabs, Tab } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 
-import Axios from "Axios";
+import Axios from "connection/data";
 
 const rq = (rqID) => ({
   Get: {
@@ -28,8 +28,8 @@ const lrq = {
 
 const Queries = () => {
   let { rqID } = useParams();
-  const [request, setRequest] = useState();
-  const [result, setResult] = useState();
+  const [request, setRequest] = useState({});
+  const [result, setResult] = useState({});
   const [tabela, setTabela] = useState({});
   const [tabKey, setTabKey] = useState();
 

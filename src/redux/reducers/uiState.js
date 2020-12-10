@@ -11,6 +11,7 @@ import {
 	TOGGLE_CART_BOX,
 	TOGGLE_SIDENAV,
 	} from 'redux/actionTypes';
+// import { usePassDialogState } from "redux/selectorHooks";
 
 const initialState = {
 	settingsDialogState: false,
@@ -20,7 +21,7 @@ const initialState = {
 	sidenavState: false,
 }
 
-export default (state = initialState, action) =>
+const uiState = (state = initialState, action) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case OPEN_SETTINGS_DIALOG: 
@@ -67,3 +68,5 @@ export default (state = initialState, action) =>
 		}
 		return draft;
 	});
+
+export default uiState;

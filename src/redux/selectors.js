@@ -11,7 +11,7 @@ export const getAboutDialogState = (state) => ( state.uiState.aboutDialogState )
 export const getSidenavState = (state) => ( state.uiState.sidenavState );
 
 // userToken Selectos
-// export const getUserToken = (state) => (state.userToken); 
+export const getUserToken = (state) => (state.userToken); 
 
 // data Selectors
 export const getJsonData = (state) => (state.jsonData); 	

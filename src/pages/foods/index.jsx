@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Navbar, Form, FormControl, Button } from "react-bootstrap";
 
-import Axios from "Axios";
+import Axios from "connection/data";
 import { useParams } from "react-router-dom";
 import NaviGator from "components/naviGator";
 import FoodCard from "components/foodCard";
@@ -73,14 +73,14 @@ const Foods = () => {
   // }, [result.id]);
 
   return (
-    <>
+    <div>
       <Navbar className="bg-light justify-content-between">
         <Navbar.Collapse id="basic-navbar-nav">
-          <Container className=" fluid" >
+          <Container className="fluid" >
             <Row>
               <Form inline >
                 <FormControl type="text" placeholder="Search" value={search} onChange={e => location(size, page, e.target.value)} />
-                <Button className="btn-light" disabled style={{ marginLeft: "10px" }}>
+                <Button className="light" disabled style={{ marginLeft: "10px" }}>
                   Items found: {result.recordCount}
                 </Button>
               </Form>
@@ -89,10 +89,10 @@ const Foods = () => {
               <NaviGator controls={{ BaseUrl, size, page, search, totalCount: result.recordCount }} />
             </Row>
             <Row>
-              <button className="btn btn-light" disabled>Page size:</button>
-              <button onClick={() => location(  5, page, search )} className="btn btn-outline-primary"> 5</button>
-              <button onClick={() => location( 10, page, search )} className="btn btn-outline-primary">10</button>
-              <button onClick={() => location( 15, page, search )} className="btn btn-outline-primary">15</button>
+              <Button className="btn-light" disabled>Page size:</Button>
+              <Button onClick={() => location(  5, page, search )} className="outline-primary"> 5</Button>
+              <Button onClick={() => location( 10, page, search )} className="outline-primary">10</Button>
+              <Button onClick={() => location( 15, page, search )} className="outline-primary">15</Button>
             </Row>
           </Container>
         </Navbar.Collapse>
@@ -113,7 +113,7 @@ const Foods = () => {
         ))}
 
       </Container>
-    </>
+    </div>
   );
 
 }

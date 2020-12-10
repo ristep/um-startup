@@ -9,6 +9,7 @@ import {
 	FETCH_TOKEN_SUCCESS,
 	FETCH_TOKEN_ERROR,
 	FETCH_TOKEN_REQUEST,
+	CLEAR_TOKEN,
 	ADD_TO_CART,
 	REMOVE_FROM_CART,
 	CLEAR_CART,
@@ -30,7 +31,7 @@ import {
 	NEXT_THEME,
 	SET_THEME
 } from "./actionTypes";
-import { getToken, postJsonRequest } from "dataModules";
+import { getToken, postJsonRequest } from "connection/data";
 
 // Theme actions
 export const nextTheme = () => ({type:NEXT_THEME});
@@ -62,9 +63,10 @@ export const toggleCartBox = () => ({ type: TOGGLE_CART_BOX });
 export const toggleSidenav = () => ({ type: TOGGLE_SIDENAV });
 
 // token actions async
-export const fetchTokenRequest = () => ({ type: FETCH_TOKEN_REQUEST })
-export const fetchTokenSucces = (tokenData) => ({ type: FETCH_TOKEN_SUCCESS, payload: tokenData })
-export const fetchTokenError = (errInfo) => ({ type: FETCH_TOKEN_ERROR, payload: errInfo })
+export const fetchTokenRequest = () => ({ type: FETCH_TOKEN_REQUEST });
+export const fetchTokenSucces = (tokenData) => ({ type: FETCH_TOKEN_SUCCESS, payload: tokenData });
+export const fetchTokenError = (errInfo) => ({ type: FETCH_TOKEN_ERROR, payload: errInfo });
+export const clearToken = () => ({ type: CLEAR_TOKEN });
 
 export const fetchToken = (unpas) => {
 	return function (dispatch) {
@@ -75,7 +77,7 @@ export const fetchToken = (unpas) => {
 			callError: (err) => dispatch(fetchTokenError(err))
 		});
 	}
-}
+};
 
 // fetch JsonData
 export const submitRequest = () => ({ type: SUBMIT_REQUEST })

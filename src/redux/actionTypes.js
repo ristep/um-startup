@@ -25,6 +25,7 @@ export const TOGGLE_SIDENAV = "TOGGLE_SIDENAV";
 export const FETCH_TOKEN_REQUEST = 'FETCH_TOKEN_REQUEST';
 export const FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS';
 export const FETCH_TOKEN_ERROR = 'FETCH_TOKEN_ERROR';
+export const CLEAR_TOKEN = 'CLEAR_TOKEN';
 
 // get data 
 // src/redux/reducers/jsonData.js

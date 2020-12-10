@@ -6,10 +6,12 @@ import userToken from "./userToken";
 import jsonData from "./jsonData";
 import cartList from "./cartList";
 
-export default { 
+const reducer = { 
 	uiState,
 	uiTheme: uiTheme,
 	userToken,
 	jsonData,
 	cartList
  };
+
+ export default reducer;

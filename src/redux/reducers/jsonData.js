@@ -91,7 +91,7 @@ export const initialState = () => {
 	}
 };
 
-export default (state = initialState(), action) =>
+const jsonData =  (state = initialState(), action) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case PREPARE_DATA_ACTION:
@@ -153,3 +153,4 @@ export default (state = initialState(), action) =>
 		// return draft;
 	});
 
+export default jsonData;
