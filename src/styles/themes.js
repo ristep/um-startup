@@ -14,4 +14,4 @@ export const themes = [
 
 export const themeTitles = themes.map( thm => thm.title ); 
 
-export const defaultThemeIndex = 3;
+export const defaultThemeIndex = 0;
