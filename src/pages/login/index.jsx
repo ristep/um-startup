@@ -1,7 +1,5 @@
-import useInterval from "hooks/useInterval";
 import React, { useEffect, useState } from "react";
 import { Container, Button, Form, Card, Alert } from "react-bootstrap";
-import ReactJson from "react-json-view";
 import { useDispatch } from "react-redux";
 import { clearToken, fetchToken } from "redux/actions";
 import { useUserTokenData } from "redux/selectorHooks";
@@ -86,7 +84,7 @@ const Login = () => {
           </Card.Footer>
         </Card>
       }
-      <ReactJson src={userTD} />
+      {/* <ReactJson src={userTD} /> */}
     </Container>
   );
 

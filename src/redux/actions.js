@@ -64,7 +64,7 @@ export const toggleSidenav = () => ({ type: TOGGLE_SIDENAV });
 
 // token actions async
 export const fetchTokenRequest = () => ({ type: FETCH_TOKEN_REQUEST });
-export const fetchTokenSucces = (tokenData) => ({ type: FETCH_TOKEN_SUCCESS, payload: tokenData });
+export const fetchTokenSuccess = (tokenData) => ({ type: FETCH_TOKEN_SUCCESS, payload: tokenData });
 export const fetchTokenError = (errInfo) => ({ type: FETCH_TOKEN_ERROR, payload: errInfo });
 export const clearToken = () => ({ type: CLEAR_TOKEN });
 
@@ -73,7 +73,7 @@ export const fetchToken = (unpas) => {
 		dispatch(fetchTokenRequest());
 		getToken({
 			...unpas,
-			callBack: (udat) => dispatch(fetchTokenSucces(udat)),
+			callBack: (udat) => dispatch(fetchTokenSuccess(udat)),
 			callError: (err) => dispatch(fetchTokenError(err))
 		});
 	}
@@ -81,7 +81,7 @@ export const fetchToken = (unpas) => {
 
 // fetch JsonData
 export const submitRequest = () => ({ type: SUBMIT_REQUEST })
-export const submitRequestSucces = (jsn) => ({ type: SUBMIT_REQUEST_SUCCESS, payload: jsn })
+export const submitRequestSuccess = (jsn) => ({ type: SUBMIT_REQUEST_SUCCESS, payload: jsn })
 export const submitRequestError = (errInfo) => ({ type: SUBMIT_REQUEST_ERROR, payload: errInfo })
 
 // store data mangle
@@ -118,7 +118,7 @@ export const executeDataAction = (dataSet) => {
 		postJsonRequest({
 			auToken: state.userToken.tokenData.auToken,
 			request: jsonQuery,
-			callBack: (udat) => { dispatch(submitRequestSucces({ ...udat, dataSet: dataSet })) }
+			callBack: (udat) => { dispatch(submitRequestSuccess({ ...udat, dataSet: dataSet })) }
 		})
 	}
 }
@@ -132,7 +132,7 @@ export const submitJsonQuery = (args) => {
 		postJsonRequest({
 			auToken: getState().userToken.tokenData.auToken,
 			request: jsonQuery,
-			callBack: (udat) => { dispatch(submitRequestSucces({ ...udat, dataSet: dataSet })) }
+			callBack: (udat) => { dispatch(submitRequestSuccess({ ...udat, dataSet: dataSet })) }
 		})
 	}
 }
@@ -153,7 +153,7 @@ export const fetchFoods = () => {
 		postJsonRequest({
 			auToken: getState().userToken.tokenData.auToken,
 			request: jsonQuery,
-			callBack: (udat) => { dispatch(submitRequestSucces({ ...udat, dataSet: dataSet })) }
+			callBack: (udat) => { dispatch(submitRequestSuccess({ ...udat, dataSet: dataSet })) }
 		})
 	}
 }
@@ -172,7 +172,7 @@ export const fetchPhotoList = () => {
 		postJsonRequest({
 			auToken: getState().userToken.tokenData.auToken,
 			request: jsonQuery,
-			callBack: (udat) => { dispatch(submitRequestSucces({ ...udat, dataSet: dataSet })) }
+			callBack: (udat) => { dispatch(submitRequestSuccess({ ...udat, dataSet: dataSet })) }
 		})
 	}
 }

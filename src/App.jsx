@@ -1,9 +1,9 @@
 import "App.scss";
 
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Navbar from "react-bootstrap/Navbar";
-import { Dropdown, DropdownButton, Nav, NavItem, NavLink } from "react-bootstrap";
+import {  Nav, NavItem, NavLink } from "react-bootstrap";
 
 import Home from "pages/home";
 
@@ -12,10 +12,9 @@ import Queries from "pages/queries";
 import About from "pages/about";
 import Food from "pages/food";
 import Foods from "pages/foods";
-import { nextTheme, setTheme } from "redux/actions";
-import { themeTitles } from "styles/themes";
 import { getTheme } from "redux/selectors";
 import Login from "pages/login";
+import UserData from "pages/userData";
 // import { queries } from "@testing-library/react";
 
 const routeList = [
@@ -59,6 +58,12 @@ const routeList = [
     render: () => <Food />
   },
   {
+    id: "userData",
+    title: "User data",
+    path: "/userdata",
+    render: () => <UserData />
+  },
+  {
     id: "home",
     title: "Home",
     path: "/",
@@ -69,7 +74,6 @@ const routeList = [
 
 function App() {
   const [routes, setRoutes] = useState([]);
-  const dispatch = useDispatch();
   const theme = useSelector(getTheme);
 
   useEffect(() => {
@@ -125,20 +129,3 @@ function App() {
 }
 
 export default App;
-
-
-{/* <DropdownButton
-className="ml-auto"
-id={`dropdown-button-drop-left`}
-key={'left'}
-drop={'right'}
-title={theme.title}
->
-<Dropdown.Item type="button" onClick={() => dispatch(nextTheme())}>
-  Next theme
-</Dropdown.Item>
-<Dropdown.Header>UI themes</Dropdown.Header>
-{themeTitles.map((title, ndx) => (
-  <Dropdown.Item key={ndx} onSelect={() => dispatch(setTheme(ndx))}>{title}</Dropdown.Item>
-))}
-</DropdownButton> */}
