@@ -17,6 +17,7 @@ Plan B:
 * https://fri.uni-lj.si/sl/studijski-program/multimedija
 
 
-# 3.
+# 3. Famnit https://www.famnit.upr.si
 * Računalništvo in informatika UN (Computer Science UN)
 * https://www.famnit.upr.si/en/education/undergraduate/cs-first/
+* https://www.famnit.upr.si/sl/izobrazevanje/dodiplomski-studij/racunalnistvo-in-informatika/
