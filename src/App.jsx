@@ -71,7 +71,7 @@ const routeList = [
     render: () => <Home />
   }
 ];
-
+z
 function App() {
   const [routes, setRoutes] = useState([]);
   const theme = useSelector(getTheme);
