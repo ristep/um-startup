@@ -2,8 +2,7 @@ import "App.scss";
 
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Navbar from "react-bootstrap/Navbar";
-import {  Nav, NavItem, NavLink } from "react-bootstrap";
+import {  Nav, NavItem, NavLink, Navbar } from "react-bootstrap";
 
 import Home from "pages/home";
 

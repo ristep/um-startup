@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <Container>
-      <h2>Home page placeholders</h2>
+      <h2>Home page Тамбара бамбара</h2>
       <Button className="btn-success" onClick={() => setCount(count + 1)}>click {count}</Button>
 
       <Button className="btn-primary" onClick={() => surf("#/about")}>About (rpimary)</Button>
